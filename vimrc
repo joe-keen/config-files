@@ -1,23 +1,12 @@
-"  set guifont=6x13
-"  set guifont=6x13
-"  set guifont=MiscFixed
-"  set guifont=Adobe_Courier:h10
-"  set guifont=-adobe-courier-medium-r-normal--10-100-75-75-m-60-iso10646-1
-"  set guifont=Courier\ 10\ Pitch\ 9
-"  set guifont=Monospace\ 10
-"  set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
-"  set guifont=-misc-fixed-*-*-normal-sans-*-*-*-*-*-*-is08859-2
-
-  execute pathogen#infect()
+execute pathogen#infect()
 
   set guifont=Misc\ Fixed\ 10
   set guioptions=caL
-  "set title titlestring=%t
+  set title titlestring=%t
   set t_Co=256
 
-  set clipboard=unnamed
-
-  colorscheme desert256
+  "colorscheme desert256
+  colorscheme zenburn
 
   set mouse=a
 
@@ -193,9 +182,42 @@ let &path = ".," . substitute($PathList , ';', ',', 'g')
 syntax enable
 
 au BufRead,BufReadPost,BufNewFile *.scr set filetype=tcl
+filetype plugin indent on
 
-autocmd BufWritePost *.py call Flake8()
+" Color config
+" -------------------------------------------------------------------
+highlight TabLine ctermbg=233
+highlight TabLineSel ctermbg=237
+highlight SignColumn ctermbg=237
+" -------------------------------------------------------------------
 
+" Python
+" -------------------------------------------------------------------
+"autocmd BufWritePost *.py call Flake8()
+
+" to use colors defined in the colorscheme
+highlight link Flake8_Error      Error
+highlight link Flake8_Warning    WarningMsg
+highlight link Flake8_Complexity WarningMsg
+highlight link Flake8_Naming     WarningMsg
+highlight link Flake8_PyFlake    WarningMsg
+" -------------------------------------------------------------------
+
+" Syntastic
+" -------------------------------------------------------------------
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+let g:syntastic_python_checkers = ["flake8"]
+" -------------------------------------------------------------------
+
+"
 " Highlighting
 
 highlight Pmenu ctermbg=0 ctermfg=248
@@ -231,6 +253,10 @@ map <F1> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 map <F4> :1,$s/test_/xtest_<CR>
 map <F5> :1,$s/xtest_/test_<CR>
+
+"let g:flake8_show_quickfix=0
+"let g:flake8_show_in_gutter=1
+autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
 
 map <F11> :set go+=rm<CR>
 map <F12> :set go-=rm<CR>

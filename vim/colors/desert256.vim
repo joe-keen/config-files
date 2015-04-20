@@ -328,6 +328,7 @@ else
     hi Special       ctermfg=5
     hi Identifier    ctermfg=6
     hi Statement     ctermfg=3
+    hi String        ctermfg=174
     hi PreProc       ctermfg=5
     hi Type          ctermfg=2
     hi Underlined    cterm=underline ctermfg=5
