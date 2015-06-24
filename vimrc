@@ -211,15 +211,17 @@ highlight link Flake8_PyFlake    WarningMsg
 
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 
 let g:syntastic_python_checkers = ["flake8"]
+
+map <F12> :Errors <CR>
 " -------------------------------------------------------------------
 
-"
-" Highlighting
 
+" Highlighting
+" -------------------------------------------------------------------
 highlight Pmenu ctermbg=0 ctermfg=248
 highlight PmenuSel ctermfg=223 ctermbg=235
 
@@ -240,6 +242,7 @@ highlight DiffText   gui=NONE cterm=NONE
 highlight TabLineSel gui=NONE cterm=NONE
 highlight Statement  gui=NONE cterm=NONE
 highlight Type       gui=NONE cterm=NONE
+" -------------------------------------------------------------------
 
 ",v brings up my .vimrc
 ",V reloads it -- making all changes active (have to save first)
@@ -253,22 +256,5 @@ map <F1> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 map <F4> :1,$s/test_/xtest_<CR>
 map <F5> :1,$s/xtest_/test_<CR>
-
-"let g:flake8_show_quickfix=0
-"let g:flake8_show_in_gutter=1
-autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
-
-map <F11> :set go+=rm<CR>
-map <F12> :set go-=rm<CR>
-
-" for those using non-gui-vim with white bg
-"if has("gui_running")
-"else
-"  colorscheme zellner
-"  set bg=light
-"endif
-
-" it's good for you. use :noh to clear highlights when they annoy
-"set hlsearch
 
 map ,bp :py print bin(<c-r>=expand("<cword>")<cr>)[2:]<cr>
