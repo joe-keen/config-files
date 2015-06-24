@@ -1,0 +1,3 @@
+#! /bin/sh
+
+xterm +sb -fg white -bg black -fn -misc-*-medium-*-*-*-14-*-*-*-*-*-*-*

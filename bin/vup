@@ -1,0 +1,12 @@
+#! /bin/bash
+
+set -e
+
+echo "vagrant destroy"
+vagrant destroy -f
+echo "git pull"
+git pull
+echo "ansible-galaxy install -r requirements.yml -p ./roles -f"
+ansible-galaxy install -r requirements.yml -p ./roles -f
+echo "vagrant up"
+vagrant up

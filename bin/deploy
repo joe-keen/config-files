@@ -1,0 +1,12 @@
+#! /bin/sh
+
+cd ~/projects/monasca-api/
+
+rm -rf dist/ build/ monasca_api.egg-info/
+
+python setup.py bdist_wheel
+
+ssh_options='-i /home/jkeen/.vagrant.d/insecure_private_key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PasswordAuthentication=no -o IdentitiesOnly=yes'
+
+install_command='sudo pip install --upgrade /vagrant_home/projects/monasca-api/dist/*'
+ssh $ssh_options vagrant@127.0.0.1 -p2200 'sudo pip install --upgrade /vagrant_home/projects/monasca-api/dist/*'
