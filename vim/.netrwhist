@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/jkeen/projects/monasca-api/java/src/test/resources/fixtures'
-let g:netrw_dirhist_2='/Users/jkeen/projects/monasca-api/monasca'
-let g:netrw_dirhist_3='/Users/jkeen/projects/monasca-api/monasca/api'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/jkeen/projects/monasca-api/monasca_api/common/repositories'
+let g:netrw_dirhist_2='/home/jkeen/projects/monasca-api/monasca_api/common/repositories/influxdb'
+let g:netrw_dirhist_3='/home/jkeen/projects/monasca-api/monasca_api'
+let g:netrw_dirhist_4='/home/jkeen/projects/monasca-api/monasca_api/v2'
+let g:netrw_dirhist_5='/home/jkeen/projects/monasca-api/monasca_api/v2/reference'

@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/jkeen/projects/aeon.devel/profile/engines/Behaviors/Scripts'
+let g:netrw_dirhist_2='/home/jkeen/projects/aeon.devel/core/gdbm_interface'
+let g:netrw_dirhist_3='/home/jkeen/projects/aeon.devel/core'
+let g:netrw_dirhist_4='/home/jkeen/projects/aeon.trunk/core/Include'
+let g:netrw_dirhist_5='/home/jkeen/projects/aeon.trunk/profile/math_evaluation/Poker-FreeSpin/Scripts'
