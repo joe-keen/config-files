@@ -2,7 +2,7 @@ execute pathogen#infect()
 
   set guifont=Misc\ Fixed\ 10
   set guioptions=caL
-  set title titlestring=%t
+  " set title titlestring=%t
   set t_Co=256
 
   "colorscheme desert256
@@ -184,6 +184,11 @@ syntax enable
 au BufRead,BufReadPost,BufNewFile *.scr set filetype=tcl
 filetype plugin indent on
 
+" OSX config
+" -------------------------------------------------------------------
+set clipboard=unnamed
+" -------------------------------------------------------------------
+
 " Color config
 " -------------------------------------------------------------------
 highlight TabLine ctermbg=233
@@ -209,12 +214,35 @@ highlight link Flake8_PyFlake    WarningMsg
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_jump = 0
 let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
 let g:syntastic_python_checkers = ["flake8"]
+" -------------------------------------------------------------------
+
+" Go
+" -------------------------------------------------------------------
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>ds <Plug>(go-def-split)
+au FileType go nmap <leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <leader>dt <Plug>(go-def-tab)
+au FileType go nmap <leader>dT <Plug>(go-def-pop)
+au FileType go nmap <leader>s <Plug>(go-implements)
+au FileType go nmap <leader>i <Plug>(go-info)
+
+au FileType go nmap <leader>gd <Plug>(go-doc-split)
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_metalinter_autosave = 1
+
 " -------------------------------------------------------------------
 
 "
