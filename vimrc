@@ -227,15 +227,22 @@ map <F12> :Errors <CR>
 
 " Go
 " -------------------------------------------------------------------
+au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>ds <Plug>(go-def-split)
 au FileType go nmap <leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <leader>dt <Plug>(go-def-tab)
+au FileType go nmap <leader>dt <Plug>(go-def)
 au FileType go nmap <leader>dT <Plug>(go-def-pop)
 au FileType go nmap <leader>s <Plug>(go-implements)
 au FileType go nmap <leader>i <Plug>(go-info)
 
+map <F2> :GoDef<CR>
+map <F3> :GoDefPop<CR>
+
 au FileType go nmap <leader>gd <Plug>(go-doc-split)
+
+au FileType go nmap <leader>ln :lnext<CR>
+au FileType go nmap <leader>lp :lprev<CR>
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -243,7 +250,16 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_metalinter_autosave = 1
+
+let g:go_fmt_autosave = 1
+let g:go_metalinter_autosave = 0
+
+let g:go_list_height = 10
+
+let g:go_list_type = "quickfix"
+
+let g:syntastic_go_checkers = ['go', 'golint', 'gofmt']
+let g:syntastic_aggregate_errors = 1
 
 " -------------------------------------------------------------------
 
